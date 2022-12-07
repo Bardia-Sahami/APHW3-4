@@ -6,6 +6,10 @@
 #include "crypto.h"
 #include "user.h"
 #include <exception>
+#include <algorithm>
+#include <string>
+#include <set>
+
 
 class User;
 
@@ -18,6 +22,9 @@ public:
     const std::vector<Message*>& get_messages() const;
     const User& create_user(const std::string& username);
     bool create_message(Message* msg, const std::string& signature);
+    std::vector<Message*> get_all_messages_from(const std::string& username) const;
+    std::vector<Message*> get_all_messages_to(const std::string& username) const;
+    std::vector<Message*> get_chat(const std::string& user1, const std::string& user2) const;
 
 private:
     std::vector<User> users;                        // to store our users

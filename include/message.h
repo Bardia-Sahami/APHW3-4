@@ -14,9 +14,9 @@ public:
     Message(const std::string& type, const std::string& sender, const std::string& receiver);
     Message();
 
-    const std::string&  get_type() const;
-    const std::string&  get_sender() const;
-    const std::string&  get_receiver() const;
+    const std::string& get_type() const;
+    const std::string& get_sender() const;
+    const std::string& get_receiver() const;
     const std::string& get_time() const;
     virtual void print(std::ostream& os) const;
     friend std::ostream& operator<<(std::ostream& os, const Message& c)

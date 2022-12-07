@@ -11,10 +11,10 @@ class Server;
 class User
 {
 public:
-    User(const std::string& _username, const std::string& _private_key, Server* _server);
+    User(const std::string& username, const std::string& private_key, Server* server);
     const std::string& get_username() const;
-    bool send_text_message(const std::string& _text, const std::string& _receiver);
-    bool send_voice_message(const std::string& _receiver);
+    bool send_text_message(const std::string& text, const std::string& receiver);
+    bool send_voice_message(const std::string& receiver);
 private:
     std::string username;     // username of the user
     std::string private_key;  // private key of the user
