@@ -26,7 +26,7 @@ inline int count_unique_above(const std::vector<int>& v, const int& n)
 
 inline std::string vector_to_string(const std::vector<int>& v, const char& separator)
 {
-    auto dash_fold = [separator](std::string a, int b)
+    auto dash_fold = [&separator](std::string a, int b)
     {
         return std::move(a) + separator + std::to_string(b);
     };
