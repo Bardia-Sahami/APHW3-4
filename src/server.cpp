@@ -74,6 +74,7 @@ bool Server::create_message(Message* msg, const std::string& signature)
     std::string public_key = public_keys[username];
     bool authentic = crypto::verifySignature(public_key, "my data", signature);
 
+    // hold data as the object is temp and it will be destructed
     static std::vector<TextMessage> holdertxt;
     static std::vector<VoiceMessage> holdervc;
     Message* newmsg;
@@ -89,13 +90,10 @@ bool Server::create_message(Message* msg, const std::string& signature)
     
 
     if (authentic) {
-        if (msg->get_type() == "text") {
+        if (msg->get_type() == "text")
             messages.push_back(newmsg);
-            // std::cout << msg->get_sender() << "->" << msg->get_receiver() << std::endl;
-        } else {
+        else 
             messages.push_back(newmsg);
-            // std::cout << msg->get_sender() << "->" << msg->get_receiver() << std::endl;
-        }
         return true;
     } else
         return false;
